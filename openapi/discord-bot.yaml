@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Discord Bot API
+  description: API for sending messages to Discord channels using a bot.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Local server
+paths:
+  /api/discord/message:
+    post:
+      operationId: sendDiscordMessage
+      summary: Send a message to a Discord channel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelId:
+                  type: string
+                  description: The ID of the Discord channel.
+                  example: "1313596842868740139"
+                message:
+                  type: string
+                  description: The message to be sent.
+                  example: "Hello, this is a test message!"
+              required:
+                - channelId
+                - message
+      responses:
+        '200':
+          description: Message sent successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Message sent successfully!"
+        '500':
+          description: Server error.
