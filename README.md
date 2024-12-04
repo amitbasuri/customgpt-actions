@@ -27,7 +27,7 @@ This repository demonstrates a backend implementation for integrating a Discord 
    Create a `.env` file:
    ```env
    PORT=3000
-   BOT_TOKEN=your_discord_bot_token
+   DISCORD_BOT_TOKEN=your_discord_bot_token
    ```
 
 3. **Run the Server**:
